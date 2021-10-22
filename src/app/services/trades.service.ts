@@ -133,7 +133,7 @@ export class TradesService {
   }
 
   private calculateBalance(tradeHistory: TradeHistoryItem[]): number | undefined {
-    return tradeHistory[tradeHistory.length-1]?.balance
+    return tradeHistory.reduce((acc, item) => acc += item.trades.reduce((acc, item) => acc += item.profit, 0), 0)
   }
 
   private sortTradesHistory(tradesHistory: TradeHistoryItem[]): TradeHistoryItem[] {
