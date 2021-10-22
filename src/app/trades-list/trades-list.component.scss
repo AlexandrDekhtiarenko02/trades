@@ -1,0 +1,57 @@
+.trade{
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  color: #8e8e8e;
+  border-bottom: 1px solid #cbcbcb;
+  padding-bottom: 20px;
+
+  &-dates{
+    span{
+      margin: 10px;
+    }
+  }
+
+  &-prices{
+    span{
+      margin: 10px;
+    }
+  }
+}
+.trades{
+  color: #8e8e8e;
+}
+
+.trade-info{
+  display: flex;
+  flex-direction: column;
+
+  span{
+    margin-top: 10px;
+  }
+}
+.trades-list {
+  display: flex;
+  flex-direction: column;
+  height: 60vh;
+  width: 500px;
+  overflow-y: scroll;
+}
+.trade-info-item{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.trade-profit{
+  font-size: 14px;
+  margin-top: 10px;
+}
+.btn{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.trade-bottom{
+  display: flex;
+  justify-content: space-between;
+}

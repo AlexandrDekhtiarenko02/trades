@@ -1,0 +1,42 @@
+<div>
+  <div class="modal-header">
+    <h1 mat-dialog-title>Add trade</h1>
+    <button (click)="closeModal()" mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div mat-dialog-content>
+    <form [formGroup]="addTradeForm" class="add-trade-form">
+      <mat-form-field appearance="fill">
+        <mat-label>Choose entry date</mat-label>
+        <input required formControlName="entryDate" matInput [matDatepicker]="picker1">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+        <mat-error>This field is required</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Choose exit date</mat-label>
+        <input required formControlName="exitDate" matInput [matDatepicker]="picker2">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+        <mat-error>This field is required</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Entry price</mat-label>
+        <input required formControlName="entryPrice" value="0" type="number" matInput min="0">
+        <mat-error>Price can’t be less than zero</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Exit price</mat-label>
+        <input required formControlName="exitPrice" value="0" matInput type="number" matInput min="0">
+        <mat-error>Price can’t be less than zero</mat-error>
+      </mat-form-field>
+      <mat-error *ngIf="dateError">Entry date should be less or equal to exit date</mat-error>
+      <h2 align="end">Profit: {{profit}} dollars</h2>
+    </form>
+  </div>
+  <div mat-dialog-actions align="end">
+    <button mat-button (click)="closeModal()">Cancel</button>
+    <button [disabled]="addTradeForm.invalid" mat-button cdkFocusInitial (click)="addTrade()">Add</button>
+  </div>
+</div>

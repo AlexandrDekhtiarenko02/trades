@@ -1,0 +1,23 @@
+<div class="trades" *ngIf="(trades$ | async) as trades">
+  <h2>Trades list</h2>
+  <div class="trades-list">
+    <div *ngFor="let trade of trades" class="trade">
+      <div class="trade-info">
+        <div class="trade-info-item">
+          <h3>Entry date: {{trade.entryDate | dateFormat}}</h3>
+          <h3>Entry price: {{trade.entryPrice}} dollars</h3>
+        </div>
+        <div class="trade-info-item">
+          <h3>Exit date: {{trade.exitDate | dateFormat}}</h3>
+          <h3>Exit price: {{trade.exitPrice}} dollars</h3>
+        </div>
+      </div>
+      <div class="trade-bottom">
+        <span class="trade-profit">Profit: {{trade.profit}} dollars</span>
+        <button (click)="openEditTradeDialog(trade)" class="btn">
+          <img height="40px" src="../assets/images/trade/edit.png" alt="edit">
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

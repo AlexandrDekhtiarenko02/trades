@@ -1,0 +1,3 @@
+<div class="chartWrapper" *ngIf="(chartOption$ | async) as chartOption">
+  <div echarts [options]="chartOption" class="demo-chart"></div>
+</div>
