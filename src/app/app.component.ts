@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {AddTradeModalComponent} from "./add-trade-modal/add-trade-modal.component";
 import {TradesService} from "./services/trades.service";

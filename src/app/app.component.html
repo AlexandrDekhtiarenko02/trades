@@ -3,11 +3,11 @@
     <h1>Trades</h1>
     <button mat-raised-button color="primary" (click)="openAddDialog()">Add trade</button>
   </div>
-  <div class="emptyTradesList" *ngIf="trades$.getValue().length === 0">
+  <div class="emptyTradesList" *ngIf="!(trades$ | async)?.length">
     <h1>Add trades</h1>
   </div>
   <div class="wrapper">
-    <div class="content" *ngIf="trades$.getValue().length > 0">
+    <div class="content" *ngIf="(trades$| async)?.length">
       <app-trades-list></app-trades-list>
       <app-trades-chart></app-trades-chart>
     </div>
