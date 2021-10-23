@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject} from "rxjs";
-import {Trade, TradeHistoryItem} from "../shared/models/trades.interfaces";
+import {NEW_TRADE, Trade, TradeHistoryItem} from "../shared/models/trades.interfaces";
 import * as moment from "moment";
 import {EChartsOption} from "echarts";
 
@@ -31,11 +31,11 @@ export class TradesService {
 
   constructor() {}
 
-  public addTrade(trade: Trade): void {
+  public addTrade(trade: NEW_TRADE): void {
     const newTrade = {
       id: Date.now().toString(),
-      entryDate: trade.entryDate,
-      exitDate: trade.exitDate,
+      entryDate: Date.parse(trade.entryDate),
+      exitDate: Date.parse(trade.exitDate),
       entryPrice: +trade.entryPrice,
       exitPrice: +trade.exitPrice,
       profit: trade.profit

@@ -18,3 +18,11 @@ export interface TradeHistoryItem {
   trades: Trade[],
   balance?: number
 }
+export interface NEW_TRADE {
+  id: string,
+  entryDate: string,
+  exitDate: string,
+  entryPrice: number,
+  exitPrice: number,
+  profit: number
+}
