@@ -14,7 +14,7 @@ export class EditTradeModalComponent implements OnInit {
 
   public editTradeForm = new FormGroup({
     entryDate: new FormControl(''),
-    exitDate: new FormControl(''),
+    exitDate: new FormControl(0),
     entryPrice: new FormControl('', [
       Validators.min(0)
     ]),
@@ -32,7 +32,7 @@ export class EditTradeModalComponent implements OnInit {
     this.editTradeForm.patchValue({
       ...data,
       entryDate: new Date(this.data.entryDate),
-      exitDate: new Date(this.data.exitDate)
+      exitDate: new Date(this.data.exitDate),
     })
 
     this.formSubscription = this.editTradeForm.valueChanges.subscribe((res: FormTrade) => {
@@ -52,6 +52,8 @@ export class EditTradeModalComponent implements OnInit {
     this.tradeService.editTrade({
       ...this.data,
       ...this.editTradeForm.value,
+      entryDate: Date.parse(this.editTradeForm.controls['entryDate'].value),
+      exitDate: Date.parse(this.editTradeForm.controls['exitDate'].value),
       profit: this.profit
     })
     this.closeModal();
